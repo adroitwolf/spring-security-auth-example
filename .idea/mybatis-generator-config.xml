@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MyBatisGeneratorConfiguration">
+    <option name="credentials">
+      <map>
+        <entry key="jdbc:mysql://localhost:3306?serverTimezone=GMT%2B8">
+          <value>
+            <Credential>
+              <option name="username" value="root" />
+            </Credential>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="globalConfig">
+      <GlobalConfig>
+        <option name="comment" value="true" />
+        <option name="domainPackage" value="" />
+        <option name="examplePackage" value="" />
+        <option name="examplePostfix" value="Example" />
+        <option name="lombokAnnotation" value="true" />
+        <option name="mapperPackage" value="" />
+        <option name="mapperPostfix" value="Mapper" />
+        <option name="moduleRootPath" value="$PROJECT_DIR$" />
+        <option name="resourcePath" value="src/main/resources" />
+        <option name="sourcePath" value="src/main/java" />
+        <option name="tablePrefix" value="" />
+        <option name="xmlPackage" value="mapper" />
+      </GlobalConfig>
+    </option>
+    <option name="tableConfigs">
+      <map>
+        <entry key="usr">
+          <value>
+            <TableConfig>
+              <option name="basePackage" value="com.adroitwolf" />
+              <option name="columnSettings">
+                <map>
+                  <entry key="id">
+                    <value>
+                      <ColumnSetting>
+                        <option name="changed" value="false" />
+                        <option name="column" value="id" />
+                        <option name="comment" value="用户id" />
+                        <option name="ignore" value="true" />
+                        <option name="javaProperty" value="id" />
+                        <option name="javaType" value="Integer" />
+                        <option name="jdbcType" value="INTEGER" />
+                      </ColumnSetting>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="comment" value="true" />
+              <option name="domainName" value="Usr" />
+              <option name="domainPackage" value="com.adroitwolf.domain" />
+              <option name="exampleName" value="UsrExample" />
+              <option name="examplePackage" value="com.adroitwolf.example" />
+              <option name="examplePostfix" value="Example" />
+              <option name="lombokAnnotation" value="true" />
+              <option name="mapperName" value="UsrMapper" />
+              <option name="mapperPackage" value="com.adroitwolf.mapper" />
+              <option name="mapperPostfix" value="Mapper" />
+              <option name="moduleRootPath" value="$PROJECT_DIR$" />
+              <option name="name" value="usr" />
+              <option name="primaryKey" value="id" />
+              <option name="resourcePath" value="src/main/resources" />
+              <option name="sourcePath" value="src/main/java" />
+              <option name="tableName" value="usr" />
+              <option name="xmlPackage" value="mapper" />
+            </TableConfig>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
