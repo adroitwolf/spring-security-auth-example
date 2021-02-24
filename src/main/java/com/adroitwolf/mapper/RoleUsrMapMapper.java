@@ -1,6 +1,6 @@
 package com.adroitwolf.mapper;
 
-import com.adroitwolf.domain.entity.UsrRole;
+import com.adroitwolf.domain.entity.RoleUsrMap;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -9,6 +9,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * Time: 2021 2021/2/12 13:48
  * Description: ://TODO 用户角色关联表
  */
-public interface UsrRoleMapper extends BaseMapper<UsrRole> {
+public interface RoleUsrMapMapper extends BaseMapper<RoleUsrMap> {
 
 }
+
+

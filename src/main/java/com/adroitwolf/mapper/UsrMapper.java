@@ -1,7 +1,9 @@
 package com.adroitwolf.mapper;
 
 import com.adroitwolf.domain.entity.Usr;
+import com.adroitwolf.domain.vo.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Select;
 
 /**
  * Created with IntelliJ IDEA.

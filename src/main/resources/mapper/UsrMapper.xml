@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  namespace绑定了与之对应的接口,值是该接口的全限定名;这个参数有且只有一个
+-->
+<mapper namespace="com.adroitwolf.mapper.UsrMapper">
+
+    <!--
+   用来描述select语句返回字段与java属性的映射关系。
+   可以有多个resultMap标签，用不同id区分不同标签。
+ -->
+    <resultMap id="UserRoleMap" type="com.adroitwolf.domain.vo.User">
+        <!--
+         column是表中的字段名。
+         property是对应的java属性。
+         jdbcTyep: 数据库中字段类型，它与Java中属性类型有对应关系，详情看下表。
+         id：数据库主键字段。
+         result：普通字段。
+        -->
+
+    </resultMap>
+    
+
+
+</mapper>

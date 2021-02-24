@@ -13,7 +13,7 @@ import lombok.ToString;
 @Data
 @ToString
 @AllArgsConstructor
-public class UsrRole {
+public class RoleUsrMap {
     private Integer id;
     private Integer usrId;
     private Integer rid;

@@ -17,5 +17,8 @@ public class Usr {
     private String password;
     private String phone;
     private String email;
-    private boolean isEnable;
+    private boolean isEnabled;
+
+
+
 }

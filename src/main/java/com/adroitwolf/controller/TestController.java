@@ -2,6 +2,7 @@ package com.adroitwolf.controller;
 
 import com.adroitwolf.domain.Dto.BaseResponse;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -21,10 +22,15 @@ public class TestController {
         return "欢迎这个狗闸种嗷@" + user ;
     }
 
+    @GetMapping("/authTest")
+    public BaseResponse authTest(){
+        return new  BaseResponse(HttpStatus.OK.value()," ","测试成功");
+    }
+
 
     @ApiOperation("登陆")
-    @PostMapping("/loginUsr")
+    @PostMapping("/login")
     public BaseResponse login(@RequestBody Map<String,String> params){
-        return 
+        return  new BaseResponse(200,"","");
     }
 }
