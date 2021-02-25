@@ -37,6 +37,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
             throw  new AppException("服务器错误,请重试");
         }
 
+//        获取json值
         String username = json.getString("username");
         String password = json.getString("password");
         if (username == null) {

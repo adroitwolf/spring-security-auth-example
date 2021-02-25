@@ -33,26 +33,44 @@ public class ServletUtils {
 
 
     public static JSONObject getRequestJsonObject(HttpServletRequest request) throws IOException {
-        if(request.getMethod().equals("GET")){ //get请求
-            return JSONObject.parseObject(request.getQueryString());
-
-        }else{ //POST方式
-            int length = request.getContentLength();
-            if(length<0){
-                return  null;
-            }
-            byte buffer[] = new byte[length];
-            for (int i = 0; i < length;) {
-
-                int readlen = request.getInputStream().read(buffer, i,
-                        length - i);
-                if (readlen == -1) {
-                    break;
+//        if(request.getMethod().equals("GET")){ //get请求
+////            System.out.println(request.getQueryString());
+//            Map<String, String[]> map = request.getParameterMap();
+//            return JSONObject.parseObject(request.getQueryString());
+//
+//        }else{ //POST方式
+            Map<String, String[]> parameterMap = request.getParameterMap();
+            Map<String,Object> params = new HashMap<>();
+            int length;
+            for (Map.Entry<String,String[]> entry: parameterMap.entrySet()){
+                length = entry.getValue().length;
+                if(length ==1){
+                    params.put(entry.getKey(), entry.getValue()[0]);
+                }else if(length >1){
+                    params.put(entry.getKey(),entry.getValue());
                 }
-                i += readlen;
             }
-            return JSONObject.parseObject(new String(buffer));
 
-        }
+            System.out.println(params.toString());
+
+
+
+//            int length = request.getContentLength();
+//            if(length<0){
+//                return  null;
+//            }
+//            byte buffer[] = new byte[length];
+//            for (int i = 0; i < length;) {
+//
+//                int readlen = request.getInputStream().read(buffer, i,
+//                        length - i);
+//                if (readlen == -1) {
+//                    break;
+//                }
+//                i += readlen;
+//            }
+            return new JSONObject(params);
+
+//        }
     }
 }

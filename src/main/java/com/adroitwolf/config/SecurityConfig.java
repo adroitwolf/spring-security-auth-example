@@ -1,6 +1,7 @@
 package com.adroitwolf.config;
 
 import com.adroitwolf.handler.CustomAuthenticationFilter;
+import com.adroitwolf.handler.LoginFailedHandler;
 import com.adroitwolf.handler.LoginSuccessHandler;
 import com.adroitwolf.service.impl.UsrServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     LoginSuccessHandler loginSuccessHandler;
 
+    @Autowired
+    LoginFailedHandler loginFailedHandler;
+
 
     @Autowired
     AuthenticationEntryPoint anonymousAuthenticationEntryPoint;
@@ -49,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         filter.setAuthenticationSuccessHandler(loginSuccessHandler);
         filter.setFilterProcessesUrl("/loginUsr");
         filter.setAuthenticationManager(authenticationManager());
+        filter.setAuthenticationFailureHandler(loginFailedHandler);
         return filter;
     }
 
@@ -84,9 +89,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .authenticationEntryPoint(anonymousAuthenticationEntryPoint)
 //                .and()
                 .formLogin()
-                .loginPage("/loginUsr")
-                .loginProcessingUrl("/loginUsr")
 //                .loginPage("/login")
+                .loginProcessingUrl("/loginUsr")
 //                .successHandler(loginSuccessHandler)
                 .permitAll();
 
@@ -100,7 +104,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-
+//  这个会在上面的过滤器执行之前执行
+        web.ignoring().antMatchers("/loginUsr");
     }
 
 

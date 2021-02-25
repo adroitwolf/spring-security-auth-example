@@ -2,10 +2,13 @@ package com.adroitwolf.domain.vo;
 
 import com.adroitwolf.domain.entity.Role;
 import lombok.Data;
+import org.apache.logging.log4j.util.StringBuilders;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -30,12 +33,25 @@ public class LoginUser implements UserDetails {
 
     private Set<GrantedAuthority> authorities;
 
-    public LoginUser(String username, String password, boolean isEnabled, Set<GrantedAuthority> authorities) {
+    public LoginUser(String username, String password, boolean isEnabled, Set<String> authorities) {
         this.username = username;
         this.password = password;
         this.isEnabled = isEnabled;
-        this.authorities = authorities;
+        Set authoritiesSet = new HashSet();
+        authorities.stream().forEach(authoritie->{ //添加权限
+            StringBuilder builder = new StringBuilder();
+            builder.append("ROLE_");
+            builder.append(authoritie);
+
+            GrantedAuthority authority = new SimpleGrantedAuthority(builder.toString());
+            authoritiesSet.add(authority);
+        });
+
+        this.authorities = authoritiesSet;
     }
+
+
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
