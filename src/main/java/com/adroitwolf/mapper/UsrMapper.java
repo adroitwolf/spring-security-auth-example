@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Select;
  * Created with IntelliJ IDEA.
  * User: ADROITWOLF
  * Time: 2021 2021/2/12 9:05
- * Description: ://TODO
+ * Description: mapper接口
  */
 
 public interface UsrMapper extends BaseMapper<Usr> {

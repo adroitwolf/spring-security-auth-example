@@ -24,7 +24,7 @@ import java.util.Set;
  * Created with IntelliJ IDEA.
  * User: ADROITWOLF
  * Time: 2021 2021/2/12 9:28
- * Description:
+ * Description:  用户认证服务
  */
 @Service
 public class UsrServiceImpl implements UsrService, UserDetailsService {
@@ -41,7 +41,7 @@ public class UsrServiceImpl implements UsrService, UserDetailsService {
         queryWrapper.ge("username",s);
         Usr usr = usrMapper.selectOne(queryWrapper);
         String pwd = usr.getPassword();
-        usr.setPassword(new BCryptPasswordEncoder().encode(pwd));
+        usr.setPassword(new BCryptPasswordEncoder().encode(pwd));  //必须加密，不然报出来BadCredentialsException错误
         if(null == usr){
             throw  new UsernameNotFoundException("用户不存在");
         }

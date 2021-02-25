@@ -7,7 +7,7 @@ import lombok.Data;
  * Created with IntelliJ IDEA.
  * User: ADROITWOLF
  * Time: 2021 2021/2/12 9:48
- * Description: ://TODO 统一JSON构造体
+ * Description: 统一JSON构造体
  */
 @Data
 @AllArgsConstructor

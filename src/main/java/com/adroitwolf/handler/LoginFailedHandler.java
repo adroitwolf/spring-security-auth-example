@@ -16,7 +16,7 @@ import java.io.IOException;
  * @author adroitwolf
  * @version 1.0.0
  * @ClassName LoginFailedHandler.java
- * @Description TODO
+ * @Description 登陆成功的拦截器
  * @createTime 2021年02月25日 08:42:00
  */
 @Component

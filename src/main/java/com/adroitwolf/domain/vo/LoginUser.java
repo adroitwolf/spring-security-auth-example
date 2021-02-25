@@ -16,7 +16,7 @@ import java.util.Set;
  * @author adroitwolf
  * @version 1.0.0
  * @ClassName LoginUser.java
- * @Description TODO
+ * @Description 用于spring security构造用的用户角色
  * @createTime 2021年02月24日 09:55:00
  */
 @Data
@@ -32,6 +32,8 @@ public class LoginUser implements UserDetails {
     private List<Role> roles;
 
     private Set<GrantedAuthority> authorities;
+
+
 
     public LoginUser(String username, String password, boolean isEnabled, Set<String> authorities) {
         this.username = username;

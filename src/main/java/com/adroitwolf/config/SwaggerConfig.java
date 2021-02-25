@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Created with IntelliJ IDEA.
  * User: ADROITWOLF
  * Time: 2021 2021/2/11 16:08
- * Description: ://TODO ${END}
+ * Description: API整合接口
  */
 @EnableSwagger2
 @Configuration

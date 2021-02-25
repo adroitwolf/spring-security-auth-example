@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  * Created with IntelliJ IDEA.
  * User: ADROITWOLF
  * Time: 2021 2021/2/9 9:00
- * Description: ://TODO ${END}
+ * Description: security 配置
  */
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {

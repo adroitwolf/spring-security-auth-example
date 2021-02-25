@@ -10,7 +10,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: ADROITWOLF
  * Time: 2021 2021/2/12 13:46
- * Description: ://TODO 角色mapper
+ * Description: 角色mapper
  */
 public interface RoleMapper extends BaseMapper<Role> {
 

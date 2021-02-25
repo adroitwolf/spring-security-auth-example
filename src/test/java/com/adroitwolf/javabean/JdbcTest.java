@@ -16,7 +16,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: ADROITWOLF
  * Time: 2021 2021/2/12 9:07
- * Description: ://TODO
+ * Description: 用于测试mybatis接口
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

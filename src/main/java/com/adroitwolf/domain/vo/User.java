@@ -11,7 +11,7 @@ import java.util.List;
  * @author adroitwolf
  * @version 1.0.0
  * @ClassName User.java
- * @Description TODO
+ * @Description 用于 自定义的用户信息结构体
  * @createTime 2021年02月24日 10:26:00
  */
 @Data
