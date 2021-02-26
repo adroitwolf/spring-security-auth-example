@@ -2,7 +2,9 @@ package com.adroitwolf.domain.vo;
 
 import com.adroitwolf.domain.entity.Role;
 import com.adroitwolf.domain.entity.Usr;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.util.List;
@@ -15,6 +17,8 @@ import java.util.List;
  * @createTime 2021年02月24日 10:26:00
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @ToString(callSuper = true)
 public class User extends Usr {
 

@@ -23,6 +23,6 @@ import java.io.IOException;
 public class LoginFailedHandler implements AuthenticationFailureHandler {
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
-        ServletUtils.render(httpServletRequest,httpServletResponse,new BaseResponse(HttpStatus.OK.value(),e.toString(),"登陆成功"));
+        ServletUtils.render(httpServletRequest,httpServletResponse,new BaseResponse(HttpStatus.OK.value(),e.toString(),"登陆失败"));
     }
 }

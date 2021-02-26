@@ -1,4 +1,4 @@
-package com.adroitwolf.excption;
+package com.adroitwolf.exception;
 
 /**
  * @author adroitwolf

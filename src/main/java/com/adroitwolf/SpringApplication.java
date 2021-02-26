@@ -2,6 +2,7 @@ package com.adroitwolf;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 /**
  * Created with IntelliJ IDEA.
@@ -10,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Description: 项目入口
  */
 @SpringBootApplication
+@EnableConfigurationProperties
 @MapperScan("com.adroitwolf.mapper")
 public class SpringApplication {
     public static void main(String args[]){

@@ -1,5 +1,6 @@
 package com.adroitwolf.security;
 
+import com.adroitwolf.domain.vo.LoginUser;
 import com.adroitwolf.domain.vo.User;
 import com.adroitwolf.mapper.UsrMapper;
 import com.adroitwolf.service.UsrService;
@@ -47,7 +48,7 @@ public class securityTest {
 
     @Test
     public void loadUserByUsernameTest(){
-        UserDetails wolf = usrServiceImpl.loadUserByUsername("wolf");
+        LoginUser wolf = (LoginUser)usrServiceImpl.loadUserByUsername("wolf");
 
         System.out.println(wolf.toString());
     }

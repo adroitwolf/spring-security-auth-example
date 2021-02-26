@@ -29,27 +29,17 @@ public class LoginUser implements UserDetails {
 
     private boolean isEnabled;
 
-    private List<Role> roles;
-
     private Set<GrantedAuthority> authorities;
 
+    private User user;
 
 
-    public LoginUser(String username, String password, boolean isEnabled, Set<String> authorities) {
+
+    public LoginUser(String username, String password, boolean isEnabled, Set<GrantedAuthority> authorities) {
         this.username = username;
         this.password = password;
         this.isEnabled = isEnabled;
-        Set authoritiesSet = new HashSet();
-        authorities.stream().forEach(authoritie->{ //添加权限
-            StringBuilder builder = new StringBuilder();
-            builder.append("ROLE_");
-            builder.append(authoritie);
-
-            GrantedAuthority authority = new SimpleGrantedAuthority(builder.toString());
-            authoritiesSet.add(authority);
-        });
-
-        this.authorities = authoritiesSet;
+        this.authorities = authorities;
     }
 
 

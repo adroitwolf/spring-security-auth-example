@@ -1,8 +1,6 @@
 package com.adroitwolf.config;
 
-import com.adroitwolf.handler.CustomAuthenticationFilter;
-import com.adroitwolf.handler.LoginFailedHandler;
-import com.adroitwolf.handler.LoginSuccessHandler;
+import com.adroitwolf.handler.*;
 import com.adroitwolf.service.impl.UsrServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -37,6 +35,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     AuthenticationEntryPoint anonymousAuthenticationEntryPoint;
 
+    @Autowired
+    TokenAuthFilter tokenAuthFilter;
+
+    @Autowired
+    CustomAccessDeniedHandler customAccessDeniedHandler;
+
 
     @Bean
     public UserDetailsService userDetailsService(){
@@ -54,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         filter.setFilterProcessesUrl("/loginUsr");
         filter.setAuthenticationManager(authenticationManager());
         filter.setAuthenticationFailureHandler(loginFailedHandler);
+
         return filter;
     }
 
@@ -64,7 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 
-        @Bean
+    @Bean
     public BCryptPasswordEncoder getPW(){
         return new BCryptPasswordEncoder();
     }
@@ -77,26 +82,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+//       关闭csrf和cors
         http.csrf().and().cors().disable();
+//        鉴权
         http
                 .authorizeRequests()
                 .antMatchers("/authTest").permitAll()
+                .antMatchers("/user/**").hasAnyRole("user") //故意写成小写，报403错误
+                .antMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
 
-
+//                走UsernamePasswordAuthenticationHandler
                 .and()
-//                .exceptionHandling()
-//                .authenticationEntryPoint(anonymousAuthenticationEntryPoint)
-//                .and()
                 .formLogin()
-//                .loginPage("/login")
-                .loginProcessingUrl("/loginUsr")
-//                .successHandler(loginSuccessHandler)
                 .permitAll();
 
-        http.exceptionHandling().authenticationEntryPoint(anonymousAuthenticationEntryPoint);
+//        异常处理
+        http
+                .exceptionHandling()
+                .authenticationEntryPoint(anonymousAuthenticationEntryPoint)
+                .accessDeniedHandler(customAccessDeniedHandler);
 
         http.addFilterAt(customAuthenticationFilter(),UsernamePasswordAuthenticationFilter.class);
+        http.addFilterBefore(tokenAuthFilter,UsernamePasswordAuthenticationFilter.class);
     }
 
 
